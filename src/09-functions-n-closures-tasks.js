@@ -23,8 +23,10 @@
  *   getComposition(Math.sin, Math.asin)(x) => Math.sin(Math.asin(x))
  *
  */
-function getComposition(/* f, g */) {
-  throw new Error('Not implemented');
+function getComposition(f, g) {
+  return function build(x) {
+    return f(g(x));
+  };
 }
 
 
@@ -44,8 +46,10 @@ function getComposition(/* f, g */) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+function getPowerFunction(exponent) {
+  return function pow(x) {
+    return x ** exponent;
+  };
 }
 
 
@@ -156,7 +160,7 @@ function partialUsingArguments(/* fn, ...args1 */) {
  * Returns the id generator function that returns next integer starting
  * from specified number every time when invoking.
  *
- * @param {Number} startFrom
+ * @param {Number} _startFrom
  * @return {Function}
  *
  * @example
@@ -169,7 +173,7 @@ function partialUsingArguments(/* fn, ...args1 */) {
  *   getId4() => 7
  *   getId10() => 11
  */
-function getIdGeneratorFunction(/* startFrom */) {
+function getIdGeneratorFunction() {
   throw new Error('Not implemented');
 }
 
